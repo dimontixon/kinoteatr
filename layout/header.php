@@ -36,7 +36,7 @@
         <div class="container py-1">
           <div class="row align-items-center">
             <div class="col-8 col-md-8 col-lg-4">
-              <h1 class="mb-0"><a href="index.php" class="text-white h2 mb-0"><strong>Кінотеатр "Долина"</strong></a></h1>
+              <h1 class="mb-0"><a href="index.php" class="text-white h2 mb-0"><strong>Кінотеатр "Чаплін"</strong></a></h1>
             </div>
             <div class="col-4 col-md-4 col-lg-8">
               <nav class="site-navigation text-right text-md-right" role="navigation">
@@ -68,7 +68,7 @@
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-8 text-center" data-aos="fade-up" data-aos-delay="400">
-            <h1 class="mb-4">Приємне місце відпочику для приємних людей</h1>
+            <h1 style="font-size:47px;" ="mb-4">Приємне місце відпочику для приємних людей</h1>
             <p class="mb-5">вулиця Грушевського, 7, Долина, Івано-Франківська область, 77500</p>
             <p><a href="?action=session" class="btn btn-primary px-5 py-3">Перейти до сеансів</a></p>
           </div>
