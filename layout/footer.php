@@ -21,7 +21,6 @@
                         є кілька столиків та можливість
                         придбати напої та різні снеки до фільму.</p>
                     </div>
-
                     <div class="mb-5">
                         <div class="col-lg-6">
                             <div class="mb-5">
@@ -43,7 +42,6 @@
         </form>
     </div> -->
 </div>
-
 <div class="col-lg-7 mb-2 mb-lg-0">
     <div class="mb-5">
         <h3 class="footer-heading mb-4">Нас легко знайти</h3>
@@ -56,7 +54,6 @@
 </div>
 </div>
 </footer>
-
 </div>
 
 <script src="js/jquery-3.3.1.min.js"></script>

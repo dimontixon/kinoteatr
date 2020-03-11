@@ -1773,10 +1773,11 @@ figure figcaption {
   position: relative;
   background: #fff;
   margin-top: -100px;
+  margin-bottom: 50px;
   -webkit-box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1); }
   .featured-property-half div {
-    width: 50%; }
+    width: 65%; }
   .featured-property-half .image {
     background-size: cover;
     background-position: center center;
