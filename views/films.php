@@ -11,7 +11,14 @@
 
 <div class="site-section">
     <div class="container">
-
+        <?php
+        if(isset($_SESSION["MyID"])){
+        ?>
+            <a href='?action=addfilm'  class='btn btn-primary px-4 py-2'>Додати фільм</a>
+            <hr>
+        <?php
+        }
+        ?>
         <?php
         include_once "views/sql_include.php";
         $MyData = new mysqli($host, $user, $pass, $database);
@@ -39,6 +46,13 @@
                             <p><?= mb_strimwidth($row["description"], 0, 245, "...") ?></p>
                             <form method='get'>
                                 <a href='?action=fullfilm&film_id=<?= $row["id"] ?>' class='btn btn-primary px-4 py-2'>Детальніше про фільм</a>
+                                <?php
+                                if(isset($_SESSION["MyID"])){
+                                ?>
+                                <a href='?action=editfilm&film_id=<?= $row["id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                <?php
+                                }
+                                ?>
                             </form>
 
 
