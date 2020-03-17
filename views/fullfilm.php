@@ -40,7 +40,7 @@ $rowfilm = $allfilms->fetch_row();
         <li><strong>Жанр:</strong>
             <?php
                 while(($rowgenre = $allgenre->fetch_assoc())!=false){
-                     echo $rowgenre["name"]." ";
+                     echo $rowgenre["name"].", ";
                 }
             ?>
         </li>
@@ -65,7 +65,7 @@ $rowfilm = $allfilms->fetch_row();
 
     <div class="block-16">
       <figure>
-        <iframe width="840" height="473" src="https://www.youtube.com/embed/pUubR_HUT-g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="840" height="473" src="<?= $rowfilm[9] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </figure>
     </div>
 
