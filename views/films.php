@@ -14,7 +14,7 @@
         <?php
         if(isset($_SESSION["MyID"])){
         ?>
-            <a href='?action=addfilm'  class='btn btn-primary px-4 py-2'>Додати фільм</a>
+            <a href='?action=addfilm' style="margin-top:-80px;"  class='btn btn-primary px-4 py-2'>Додати фільм</a>
             <hr>
         <?php
         }
