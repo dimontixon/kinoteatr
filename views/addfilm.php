@@ -164,8 +164,8 @@ $MyData->close();
 
                         <div class="row form-group">
                             <div class="col-md-10">
-                                <label class="font-weight-bold" for="photo">Фото:</label>
-                                <input required name="photo" type="file" id="photo" class="form-control-file">
+                                <label class="font-weight-bold" for="form_photo">Фото:</label>
+                                <input required name="photo" type="file" id="form_photo" class="form-control-file">
                             </div>
                         </div>
 
@@ -179,7 +179,7 @@ $MyData->close();
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <label  class="font-weight-bold" for="visible">В прокаті?(так/ні):</label>
-                                <input  style="margin-left:10px;" value="0" name="visible" type="checkbox" id="visible" class="form-check-input">
+                                <input  style="margin-left:10px;margin-top:10px;" value="0" name="visible" type="checkbox" id="visible" class="form-check-input">
                             </div>
                         </div>
 
