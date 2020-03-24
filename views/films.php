@@ -30,7 +30,7 @@
                 <div style="margin-bottom:40px;" class="row">
                     <div class="col-lg-4">
                         <form method='get'>
-                            <a href='?action=fullfilm&film_id=<?= $row["id"] ?>' ><img width="300px" height="600px" src="<?= $row["photo"] ?>" alt="Image" class="img-fluid"></a>
+                            <a href='?action=fullfilm&film_id=<?= $row["id"] ?>' ><img width="300px" height="600px" src=".<?= $row["photo"] ?>" alt="Image" class="img-fluid"></a>
                         </form>
 
                     </div>

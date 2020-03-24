@@ -9,7 +9,7 @@ $allcountry = $MyData->query("SELECT `country`.`name` FROM `country`, `film`, `f
 $rowfilm = $allfilms->fetch_row();
 ?>
 
-<div class="site-blocks-cover overlay" style="margin-top: -30px;background-image: url('<?= $rowfilm[8] ?>');" data-aos="fade" data-stellar-background-ratio="0.5" data-aos="fade">
+<div class="site-blocks-cover overlay" style="margin-top: -30px;background-image: url('.<?= $rowfilm[8] ?>');" data-aos="fade" data-stellar-background-ratio="0.5" data-aos="fade">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-md-8 text-center" data-aos="fade-up" data-aos-delay="400">
@@ -21,7 +21,7 @@ $rowfilm = $allfilms->fetch_row();
 
 <div class="container">
   <div class="featured-property-half d-flex">
-    <div class="image"  style="background-image: url('<?= $rowfilm[8] ?>'); background-size:100% 100%;"></div>
+    <div class="image"  style="background-image: url('.<?= $rowfilm[8] ?>'); background-size:100% 100%;"></div>
     <div class="text">
       <h2>Все про фільм <strong>"<?= $rowfilm[1] ?>"</strong></h2>
       <!-- <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis quae obcaecati doloribus distinctio, aliquam vero? Molestias, amet, eveniet.</p> -->

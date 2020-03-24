@@ -67,8 +67,16 @@ if(isset($_POST["send"])){
         if(isset($_FILES['photo'])){
             $file_name = $_FILES['photo']['name'];
             $file_tmp = $_FILES['photo']['tmp_name'];
-            move_uploaded_file($file_tmp,"images/photo_films/".$file_name);
-            $full_photo_path = "images/photo_films/".$file_name;
+            //$uploadfile = "images/films/" . basename($_FILES['photo']['name']);
+            if(move_uploaded_file($file_tmp,"images/films/".$file_name)){
+                echo "ZBS move_uploaded_file";
+            } else {
+                echo "PIZDA move_uploaded_file";
+
+            }
+            $full_photo_path = "/images/films/".$file_name;
+        } else {
+            echo "PIZDA";
         }
 
          $MyData->query("INSERT INTO `film` (`name`, `age`, `release_date_world`, `release_date_ukraine`, `duration_minute`, `budget_mln_usd`, `description`, `photo`, `trailer`, `visible`)
@@ -96,7 +104,7 @@ $MyData->close();
         <div class="container">
             <div class="row ">
                 <div class="col-md-12 col-lg-7 mb-5">
-                    <form method="post" class="contact-form">
+                    <form method="post" class="contact-form" role="form" enctype="multipart/form-data">
                         <!-- <div style="color:red;" class="help-block with-errors"><?=$errorMsg?></div> -->
                         <div class="row form-group">
                             <div class="col-md-12 mb-3 mb-md-0">
@@ -165,7 +173,7 @@ $MyData->close();
                         <div class="row form-group">
                             <div class="col-md-10">
                                 <label class="font-weight-bold" for="form_photo">Фото:</label>
-                                <input required name="photo" type="file" id="form_photo" class="form-control-file">
+                                <input required="required" name="photo" type="file" id="form_photo" class="form-control-file">
                             </div>
                         </div>
 
