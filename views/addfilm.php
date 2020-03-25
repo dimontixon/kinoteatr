@@ -18,38 +18,7 @@ $full_photo_path = $file_name = $file_tmp = '';
 $wasError = false;
 
 if(isset($_POST["send"])){
-    // if(isset($_FILES['photo'])){
-    //     $file_name = $_FILES['photo']['name'];
-    //     $file_tmp = $_FILES['photo']['tmp_name'];
-    //
-    //     // move_uploaded_file($file_tmp,"img/photo_recipes/".$file_name);
-    //     // $full_photo_path = "img/photo_recipes/".$file_name;
-    //     if($_FILES['photo']['size'] > 2097152){
-    //         $photoErr = 'Фото повинно бути розміром менше 2 Мб';
-    //         $wasError = true;
-    //     }
-    //
-    //     switch ($_FILES['photo']['type']) {
-    //         case 'image/jpeg':
-    //         //case 'image/jpg':
-    //             $type = 'jpeg';
-    //             break;
-    //
-    //         case 'image/png':
-    //             $type = 'png';
-    //             break;
-    //
-    //         default:
-    //             $photoErr = "Фото повинно бути форматом jpeg або png та повинно бути розміром менше 2 Мб";
-    //             $wasError = true;
-    //             break;
-    //     }
-    //
-    //
-    //
-    // }
-
-    if ($wasError == false){
+        if ($wasError == false){
         $name=htmlspecialchars ($_POST["name"]);
         $age=$_POST["age"];
         $release_date_world = $_POST["release_date_world"];
@@ -67,16 +36,8 @@ if(isset($_POST["send"])){
         if(isset($_FILES['photo'])){
             $file_name = $_FILES['photo']['name'];
             $file_tmp = $_FILES['photo']['tmp_name'];
-            //$uploadfile = "images/films/" . basename($_FILES['photo']['name']);
-            if(move_uploaded_file($file_tmp,"images/films/".$file_name)){
-                echo "ZBS move_uploaded_file";
-            } else {
-                echo "PIZDA move_uploaded_file";
-
-            }
+            move_uploaded_file($file_tmp,"images/films/".$file_name);
             $full_photo_path = "/images/films/".$file_name;
-        } else {
-            echo "PIZDA";
         }
 
          $MyData->query("INSERT INTO `film` (`name`, `age`, `release_date_world`, `release_date_ukraine`, `duration_minute`, `budget_mln_usd`, `description`, `photo`, `trailer`, `visible`)
@@ -92,8 +53,6 @@ if(isset($_POST["send"])){
         }
         //echo "<script>location.assign('?action=addfilm')</script>";
         //exit;
-
-
     }
 }
 $MyData->close();
@@ -180,6 +139,7 @@ $MyData->close();
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <label class="font-weight-bold" for="trailer">Посилання на трейлер в YouTube:</label>
+                                <p style="font-size:13px;"><span style="color:red;">!!!</span>(відкрийте відео на YouTube та скопіюйте з URL тільки частину після "watch?v=" і вставте нижче)</p>
                                 <input required name="trailer" type="text" id="trailer" class="form-control" placeholder="Посилання на трейлер">
                             </div>
                         </div>

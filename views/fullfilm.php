@@ -24,9 +24,8 @@ $rowfilm = $allfilms->fetch_row();
     <div class="image"  style="background-image: url('.<?= $rowfilm[8] ?>'); background-size:100% 100%;"></div>
     <div class="text">
       <h2>Все про фільм <strong>"<?= $rowfilm[1] ?>"</strong></h2>
-      <!-- <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis quae obcaecati doloribus distinctio, aliquam vero? Molestias, amet, eveniet.</p> -->
+
       <ul style="font-size:20px;" class="property-list-details mb-5">
-        <!-- <li class="text-black">Property Name: <strong class="text-black">Marga Luxury Suite</strong></li> -->
         <li>Вік: <strong><?= $rowfilm[2] ?>+</strong></li>
         <br>
         <li>Дата виходу в світі: <strong><?= date("d.m.Y", strtotime($rowfilm[3])) ?></strong></li>
@@ -65,7 +64,7 @@ $rowfilm = $allfilms->fetch_row();
 
     <div class="block-16">
       <figure>
-        <iframe width="840" height="473" src="<?= $rowfilm[9] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="840" height="473" src="https://www.youtube.com/embed/<?= $rowfilm[9] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </figure>
     </div>
 
