@@ -121,15 +121,11 @@ $allgenre = $MyData->query("SELECT * from `genre`");
 
         <div class="row">
             <?php
-            $film_genre = $MyData->query("SELECT `genre`.`name`
-                 FROM `session`, `film`, `genre`, `film_genre` WHERE `session`.`film_id` = `film`.`id` AND `film`.`id` = `film_genre`.`film_id` AND `film_genre`.`genre_id` = `genre`.`id`
-                   order by `session`.`time`");
-
             $allfilms = $MyData->query("SELECT DISTINCT `session`.`id` as `s_id`,
                 `genre`.`name` as `genre_name`, `film`.`id`, `film`.`photo`, `film`.`name`, `session`.`date`, `session`.`time`, `session`.`price`, `session`.`format`
                  FROM `session`, `film`, `genre`, `film_genre` WHERE `session`.`film_id` = `film`.`id` AND `film`.`id` = `film_genre`.`film_id` AND `film_genre`.`genre_id` = `genre`.`id`
                    group by `s_id`
-                   order by `session`.`time`");
+                   order by `session`.`date`, `session`.`time`");
 
                 if(isset($_POST["send"])){
                     $post_genre = $_POST["genre"];
@@ -286,8 +282,8 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                 <?php
                             }
                         }
-                    //ВИБРАНО ЧАС І ЖАНР
                     }
+                    //ВИБРАНО ЧАС І ЖАНР
                     elseif(!empty($_POST["genre"]) && empty($_POST["day"]) && !empty($_POST["time"])){
                     $allfilms_genre = $MyData->query("SELECT DISTINCT `session`.`id` as `s_id`,
                         `genre`.`name` as `genre_name`, `film`.`id`, `film`.`photo`, `film`.`name`, `session`.`date`, `session`.`time`, `session`.`price`, `session`.`format`
