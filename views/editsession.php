@@ -109,7 +109,7 @@ $MyData->close();
                                 <button type="submit" name="send" class="btn btn-primary py-3 px-4">Редагувати</button>
                             </div>
                             <div class="col-md-6">
-                                <button type="reset" name="reset" class="btn btn-primary py-3 px-4">Очистити</button>
+                                <a href="?action=session" class="btn btn-primary py-3 px-4">Скасувати</a>
                             </div>
                         </div>
                     </form>

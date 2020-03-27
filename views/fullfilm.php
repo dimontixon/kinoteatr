@@ -20,57 +20,68 @@ $rowfilm = $allfilms->fetch_row();
 </div>
 
 <div class="container">
-  <div class="featured-property-half d-flex">
-    <div class="image"  style="background-image: url('.<?= $rowfilm[8] ?>'); background-size:100% 100%;"></div>
-    <div class="text">
-      <h2>Все про фільм <strong>"<?= $rowfilm[1] ?>"</strong></h2>
+    <div class="featured-property-half d-flex">
+        <div class="image"  style="background-image: url('.<?= $rowfilm[8] ?>'); background-size:100% 100%;"></div>
+        <div class="text">
+            <h2>Все про фільм <strong>"<?= $rowfilm[1] ?>"</strong></h2>
 
-      <ul style="font-size:20px;" class="property-list-details mb-5">
-        <li>Вік: <strong><?= $rowfilm[2] ?>+</strong></li>
-        <br>
-        <li>Дата виходу в світі: <strong><?= date("d.m.Y", strtotime($rowfilm[3])) ?></strong></li>
-        <br>
-        <li>Дата виходу в Україні: <strong><?= date("d.m.Y", strtotime($rowfilm[4])) ?></strong></li>
-        <br>
-        <li>Тривалість: <strong><?= $rowfilm[5] ?> хв.</strong></li>
-        <br>
-        <li>Бюджет: <strong><?= $rowfilm[6] ?> млн. дол. США</strong></li>
-        <br>
-        <li><strong>Жанр:</strong>
-            <?php
-                while(($rowgenre = $allgenre->fetch_assoc())!=false){
-                     echo $rowgenre["name"].", ";
-                }
-            ?>
-        </li>
-        <br>
-        <li><strong>Країна:</strong>
-            <?php
-                while(($rowcountry = $allcountry->fetch_assoc())!=false){
+            <ul style="font-size:20px;" class="property-list-details mb-5">
+                <li>Вік: <strong><?= $rowfilm[2] ?>+</strong></li>
+                <br>
+                <li>Дата виходу в світі: <strong><?= date("d.m.Y", strtotime($rowfilm[3])) ?></strong></li>
+                <br>
+                <li>Дата виходу в Україні: <strong><?= date("d.m.Y", strtotime($rowfilm[4])) ?></strong></li>
+                <br>
+                <li>Тривалість: <strong><?= $rowfilm[5] ?> хв.</strong></li>
+                <br>
+                <li>Бюджет: <strong><?= $rowfilm[6] ?> млн. дол. США</strong></li>
+                <br>
+                <li><strong>Жанр:</strong>
+                    <?php
+                    while(($rowgenre = $allgenre->fetch_assoc())!=false){
+                        echo $rowgenre["name"].", ";
+                    }
+                    ?>
+                </li>
+                <br>
+                <li><strong>Країна:</strong>
+                    <?php
+                    while(($rowcountry = $allcountry->fetch_assoc())!=false){
                         echo $rowcountry["name"].", ";
-                }
-            ?>
-        </li>
-      </ul>
+                    }
+                    ?>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 </div>
 
-<div class="site-section">
+<div style="margin-top:-60px;" class="site-section">
     <div class="container">
-<div class="col-lg-8 mb-5 mb-lg-0">
-  <div class="mb-5">
-    <h3 class="footer-heading mb-4">Трейлер фільму "<strong><?= $rowfilm[1] ?></strong>"</h3>
 
-    <div class="block-16">
-      <figure>
-        <iframe width="840" height="473" src="https://www.youtube.com/embed/<?= $rowfilm[9] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </figure>
+        <div class="col-lg-10 mb-5 mb-lg-0">
+            <div class="mb-5">
+                <h3 class="footer-heading mb-4">Опис фільму "<strong><?= $rowfilm[1] ?></strong>"</h3>
+                <div class="block-16">
+                    <samp><?=$rowfilm[7]?></samp>
+                    <!-- <p><?=//$rowfilm[7]?></p> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8 mb-5 mb-lg-0">
+            <div class="mb-5">
+                <h3 class="footer-heading mb-4">Трейлер фільму "<strong><?= $rowfilm[1] ?></strong>"</h3>
+
+                <div class="block-16">
+                    <figure>
+                        <iframe width="840" height="473" src="https://www.youtube.com/embed/<?= $rowfilm[9] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </figure>
+                </div>
+
+            </div>
+        </div>
     </div>
-
-  </div>
-  </div>
-   </div>
 
 
 

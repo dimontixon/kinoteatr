@@ -200,7 +200,6 @@ $MyData->close();
                             </div>
                             <div class="col-md-6">
                                 <a href="?action=films" class="btn btn-primary py-3 px-4">Скасувати</a>
-                                <!-- <button type="" name="reset" class="btn btn-primary py-3 px-4">Скасувати</button> -->
                             </div>
                         </div>
 
