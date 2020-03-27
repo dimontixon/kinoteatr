@@ -13,7 +13,7 @@
 include_once "views/sql_include.php";
 $MyData = new mysqli($host, $user, $pass, $database);
 $MyData->query("SET NAMES 'utf8'");
-$allfilms = $MyData->query("SELECT `id`, `name`, `photo` from `film`");
+$allfilms = $MyData->query("SELECT `id`, `name` from `film`");
 $wasError = false;
 
 if(isset($_POST["send"])){
