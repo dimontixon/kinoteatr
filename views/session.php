@@ -76,11 +76,26 @@ $tomorrow = date('Y-m-d', strtotime($today . ' +1 day'));
 $aftertomorrow = date('Y-m-d', strtotime($tomorrow . ' +1 day'));
 $afteraftertomorrow = date('Y-m-d', strtotime($aftertomorrow . ' +1 day'));
 $afterafteraftertomorrow = date('Y-m-d', strtotime($afteraftertomorrow . ' +1 day'));
-$afterafterafteraftertomorrow = date('Y-m-d', strtotime($afteraftertomorrow . ' +1 day'));
+$afterafterafteraftertomorrow = date('Y-m-d', strtotime($afterafteraftertomorrow . ' +1 day'));
 $allgenre = $MyData->query("SELECT * from `genre`");
 ?>
 
-<div class="site-section">
+<!-- КНОПКА "ДОДАТИ СЕАНС" -->
+<div class="row">
+    <div class="site-section-heading  mb-3 w-border col-md-2 mx-auto">
+        <?php
+        if(isset($_SESSION["MyID"])){
+        ?>
+            <a href='?action=addsession' style="margin-top:-80px;"  class='btn btn-primary px-4 py-2'>Додати сеанс</a>
+
+        <?php
+        }
+        ?>
+    </div>
+</div>
+
+
+<div style="margin-top:-80px;" class="site-section">
     <div class="container">
         <div class="row">
             <div class="site-section-heading  mb-5 w-border col-md-3 mx-auto">
@@ -143,6 +158,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                             <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                         </div>
                                     </a>
+                                    <?php
+                                    if(isset($_SESSION["MyID"])){
+                                    ?>
+                                    <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
 
                                 <?php
@@ -164,6 +186,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                                 <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                             </div>
                                         </a>
+                                        <?php
+                                        if(isset($_SESSION["MyID"])){
+                                        ?>
+                                        <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
 
                                     <?php
@@ -183,6 +212,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                                 <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                             </div>
                                         </a>
+                                        <?php
+                                        if(isset($_SESSION["MyID"])){
+                                        ?>
+                                        <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
 
                                     <?php
@@ -210,6 +246,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                             <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                         </div>
                                     </a>
+                                    <?php
+                                    if(isset($_SESSION["MyID"])){
+                                    ?>
+                                    <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
 
                                 <?php
@@ -230,6 +273,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                                 <span>Час:<strong><?=$row["time"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;|&ensp;&ensp;&ensp;&ensp;&ensp;Ціна:<strong><?=$row["price"]?></strong> грн.</span>
                                                 <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                             </div>
+                                            <?php
+                                            if(isset($_SESSION["MyID"])){
+                                            ?>
+                                            <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                            <?php
+                                            }
+                                            ?>
                                         </a>
                                     </div>
 
@@ -250,6 +300,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                                 <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                             </div>
                                         </a>
+                                        <?php
+                                        if(isset($_SESSION["MyID"])){
+                                        ?>
+                                        <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
 
                                     <?php
@@ -277,6 +334,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                             <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                         </div>
                                     </a>
+                                    <?php
+                                    if(isset($_SESSION["MyID"])){
+                                    ?>
+                                    <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
 
                                 <?php
@@ -307,6 +371,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                                <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                            </div>
                                        </a>
+                                       <?php
+                                       if(isset($_SESSION["MyID"])){
+                                       ?>
+                                       <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                       <?php
+                                       }
+                                       ?>
                                    </div>
 
                                    <?php
@@ -326,6 +397,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                                <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                            </div>
                                        </a>
+                                       <?php
+                                       if(isset($_SESSION["MyID"])){
+                                       ?>
+                                       <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                       <?php
+                                       }
+                                       ?>
                                    </div>
 
                                    <?php
@@ -354,6 +432,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                                    <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                                </div>
                                            </a>
+                                           <?php
+                                           if(isset($_SESSION["MyID"])){
+                                           ?>
+                                           <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                           <?php
+                                           }
+                                           ?>
                                        </div>
 
                                        <?php
@@ -373,6 +458,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                                    <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                                </div>
                                            </a>
+                                           <?php
+                                           if(isset($_SESSION["MyID"])){
+                                           ?>
+                                           <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                           <?php
+                                           }
+                                           ?>
                                        </div>
 
                                        <?php
@@ -392,6 +484,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                         <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                     </div>
                                 </a>
+                                <?php
+                                if(isset($_SESSION["MyID"])){
+                                ?>
+                                <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                <?php
+                                }
+                                ?>
                             </div>
 
                             <?php
@@ -410,6 +509,13 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                     <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
                                 </div>
                             </a>
+                            <?php
+                            if(isset($_SESSION["MyID"])){
+                            ?>
+                            <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                            <?php
+                            }
+                            ?>
                         </div>
 
                         <?php
