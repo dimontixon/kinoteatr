@@ -161,7 +161,8 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                     <?php
                                     if(isset($_SESSION["MyID"])){
                                     ?>
-                                    <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                    <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-2 py-2'>Редагувати</a><br>
+                                    <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-3 py-2'>Місця</a>
                                     <?php
                                     }
                                     ?>

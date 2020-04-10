@@ -64,7 +64,6 @@ $rowfilm = $allfilms->fetch_row();
                 <h3 class="footer-heading mb-4">Опис фільму "<strong><?= $rowfilm[1] ?></strong>"</h3>
                 <div class="block-16">
                     <samp><?=$rowfilm[7]?></samp>
-                    <!-- <p><?=//$rowfilm[7]?></p> -->
                 </div>
             </div>
         </div>
