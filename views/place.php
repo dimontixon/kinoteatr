@@ -10,9 +10,9 @@
 </div>
 
 
-    <table class="table table-dark">
-        <div  data-toggle="buttons">
+    <table class="table">
             <form action="?action=place" method="post">
+                <div class="btn-group-toggle" data-toggle="buttons">
         <?php
         $place = 1;
         for($i=0;$i<6;$i++){
@@ -42,6 +42,10 @@
 
         ?>
         <button class="btn btn-primary py-3 px-4" type="submit" name="send">Зберегти</button>
+    </div>
         </form>
-        </div>
     </table>
+
+<script type="text/javascript">
+        $().button('toggle');
+</script>
