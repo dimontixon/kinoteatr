@@ -10,8 +10,7 @@
 
 
 <?php
-$s_id = 0;
-$s_id=(int)$_GET['s_id'];
+$s_id=(int)$_GET['session_id'];
 include_once "views/sql_include.php";
 $MyData = new mysqli($host, $user, $pass, $database);
 $MyData->query("SET NAMES 'utf8'");
@@ -26,7 +25,7 @@ if(isset($_POST["send"])){
         for($i=0;$i<6;$i++){
             for($j=0;$j<9;$j++){
                 if(isset($_POST["place".$place])){
-                    $allSelectedPlaces = $allSelectedPlaces." ".$place." ";
+                    $allSelectedPlaces = $allSelectedPlaces."".$place." ";
                 }
                 $place++;
             }
@@ -44,7 +43,7 @@ $MyData->close();
 
 <?php if(isset($_SESSION["MyID"])){ ?>
     <table class="table">
-            <form action="?action=place" method="post">
+            <form method="post">
                 <div class="btn-group-toggle" data-toggle="buttons">
                     <tr>
                         <td></td><td></td><td></td><td></td>
@@ -63,20 +62,6 @@ $MyData->close();
             }
             echo "<br></tr>";
         }
-/*
-        if(isset($_POST["send"])){
-            $allSelectedPlaces = "";
-            $place = 1;
-            for($i=0;$i<6;$i++){
-                for($j=0;$j<9;$j++){
-                    if(isset($_POST["place".$place])){
-                        $allSelectedPlaces = $allSelectedPlaces." ".$place." ";
-                    }
-                    $place++;
-                }
-            }
-            print($allSelectedPlaces);
-        }*/
 
         ?>
         <button class="btn btn-primary py-3 px-4" type="submit" name="send">Зберегти</button>
