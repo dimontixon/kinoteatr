@@ -155,7 +155,8 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                         <div class="unit-9-content">
                                             <h2><?=$row["name"]?></h2>
                                             <span>Час:<strong><?=$row["time"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;|&ensp;&ensp;&ensp;&ensp;&ensp;Ціна:<strong><?=$row["price"]?></strong> грн.</span>
-                                            <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?></strong></span>
+                                            <span>Формат:<strong><?=$row["format"]?></strong> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong><?=$row["date"]?>
+                                            </strong></span>
                                         </div>
                                     </a>
                                     <?php
@@ -192,6 +193,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                         if(isset($_SESSION["MyID"])){
                                         ?>
                                         <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                        <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                         <?php
                                         }
                                         ?>
@@ -218,6 +220,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                         if(isset($_SESSION["MyID"])){
                                         ?>
                                         <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                        <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                         <?php
                                         }
                                         ?>
@@ -252,6 +255,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                     if(isset($_SESSION["MyID"])){
                                     ?>
                                     <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                    <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                     <?php
                                     }
                                     ?>
@@ -279,6 +283,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                             if(isset($_SESSION["MyID"])){
                                             ?>
                                             <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                            <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                             <?php
                                             }
                                             ?>
@@ -306,6 +311,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                         if(isset($_SESSION["MyID"])){
                                         ?>
                                         <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                        <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                         <?php
                                         }
                                         ?>
@@ -340,6 +346,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                     if(isset($_SESSION["MyID"])){
                                     ?>
                                     <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                    <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                     <?php
                                     }
                                     ?>
@@ -377,6 +384,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                        if(isset($_SESSION["MyID"])){
                                        ?>
                                        <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                       <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                        <?php
                                        }
                                        ?>
@@ -403,6 +411,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                        if(isset($_SESSION["MyID"])){
                                        ?>
                                        <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                       <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                        <?php
                                        }
                                        ?>
@@ -438,6 +447,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                            if(isset($_SESSION["MyID"])){
                                            ?>
                                            <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                           <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                            <?php
                                            }
                                            ?>
@@ -464,6 +474,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                            if(isset($_SESSION["MyID"])){
                                            ?>
                                            <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                           <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                            <?php
                                            }
                                            ?>
@@ -490,6 +501,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                                 if(isset($_SESSION["MyID"])){
                                 ?>
                                 <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                                 <?php
                                 }
                                 ?>
@@ -515,6 +527,7 @@ $allgenre = $MyData->query("SELECT * from `genre`");
                             if(isset($_SESSION["MyID"])){
                             ?>
                             <a href='?action=editsession&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                            <a href='?action=place&session_id=<?= $row["s_id"] ?>' class='btn btn-primary px-4 py-2'>Місця</a>
                             <?php
                             }
                             ?>
