@@ -21,7 +21,7 @@ $rowFilmName = $filmName->fetch_row();
 $row = $allplaces->fetch_assoc();
 $places = $row["places"];
 //print($places);
-echo "<p style='font-size:30px;'>Вибір місць для сеансу:</p><pre style='font-size:25px;'>Фільм - <b>".$rowFilmName[0]."</b>,    Дата - <b>".$row['date']."</b>,    Час - <b>".$row['time']."</b>,     Формат - <b>".$row['format']."</b>,     Ціна - <b>".$row['price']."грн.</b></pre>";
+echo "<p style='font-size:30px;'>Вибір місць для сеансу:</p><pre style='font-size:25px;'>Фільм - <b>".$rowFilmName[0]."</b>,    Дата - <b>".date('d.m.Y',strtotime($row['date']))."</b>,    Час - <b>".$row['time']."</b>,     Формат - <b>".$row['format']."</b>,     Ціна - <b>".$row['price']."грн.</b></pre>";
 $arrayPlaces = explode(" ", $places);
 
 if(isset($_POST["send"])){
