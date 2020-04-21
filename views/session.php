@@ -137,8 +137,8 @@ $allgenre = $MyData->query("SELECT * from `genre`");
         <div class="row">
             <?php
             $allfilms = $MyData->query("SELECT DISTINCT `session`.`id` as `s_id`,
-                `genre`.`name` as `genre_name`, `film`.`id`, `film`.`photo`, `film`.`name`, `session`.`date`, `session`.`time`, `session`.`price`, `session`.`format`
-                 FROM `session`, `film`, `genre`, `film_genre` WHERE `session`.`film_id` = `film`.`id` AND `film`.`id` = `film_genre`.`film_id` AND `film_genre`.`genre_id` = `genre`.`id`
+                `genre`.`name` as `genre_name`, `film`.`id`, `film`.`photo`, `film`.`name`, `film`.`visible`, `session`.`date`, `session`.`time`, `session`.`price`, `session`.`format`
+                 FROM `session`, `film`, `genre`, `film_genre` WHERE `film`.`visible` = 1 AND `session`.`film_id` = `film`.`id` AND `film`.`id` = `film_genre`.`film_id` AND `film_genre`.`genre_id` = `genre`.`id`
                    group by `s_id`
                    order by `session`.`date`, `session`.`time`");
 

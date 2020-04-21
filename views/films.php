@@ -13,10 +13,10 @@
     <div class="container">
         <?php
         if(isset($_SESSION["MyID"])){
-        ?>
+            ?>
             <a href='?action=addfilm' style="margin-top:-80px;"  class='btn btn-primary px-4 py-2'>Додати фільм</a>
             <hr>
-        <?php
+            <?php
         }
         ?>
         <?php
@@ -25,8 +25,8 @@
         $MyData->query("SET NAMES 'utf8'");
         $allfilms = $MyData->query("SELECT * FROM `film`");
         while(($row = $allfilms->fetch_assoc())!=false){
-            if($row["visible"]==1){
-            ?>
+            if($row["visible"]==1 && !isset($_SESSION["MyID"])){
+                ?>
                 <div style="margin-bottom:40px;" class="row">
                     <div class="col-lg-4">
                         <form method='get'>
@@ -48,9 +48,9 @@
                                 <a href='?action=fullfilm&film_id=<?= $row["id"] ?>' class='btn btn-primary px-4 py-2'>Детальніше про фільм</a>
                                 <?php
                                 if(isset($_SESSION["MyID"])){
-                                ?>
-                                <a href='?action=editfilm&film_id=<?= $row["id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
-                                <?php
+                                    ?>
+                                    <a href='?action=editfilm&film_id=<?= $row["id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                    <?php
                                 }
                                 ?>
                             </form>
@@ -59,8 +59,81 @@
                         </div>
                     </div>
                 </div>
-            <?php
-        }
+                <?php
+            } elseif (isset($_SESSION["MyID"])) {
+                if($row["visible"]==1){
+                    ?>
+                    <div style="margin-bottom:40px;" class="row">
+                        <div class="col-lg-4">
+                            <form method='get'>
+                                <a href='?action=fullfilm&film_id=<?= $row["id"] ?>' ><img width="300px" height="600px" src=".<?= $row["photo"] ?>" alt="Image" class="img-fluid"></a>
+                            </form>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="site-section-heading text-left mb-5 w-border col-md-12 mx-auto">
+                                <form method='get'>
+                                    <a href='?action=fullfilm&film_id=<?= $row["id"] ?>' ><h2 class="mb-5"><?= $row["name"] ?></h2></a>
+                                </form>
+                                <p><strong>Вік:</strong> <?= $row["age"] ?>+</p>
+                                <p><strong>Дата виходу в світі:</strong> <?= date("d.m.Y", strtotime($row["release_date_world"])) ?></p>
+                                <p><strong>Дата виходу в Україні:</strong> <?= date("d.m.Y", strtotime($row["release_date_ukraine"])) ?></p>
+                                <p><strong>Тривалість, хв:</strong> <?= $row["duration_minute"] ?></p>
+                                <p><?= mb_strimwidth($row["description"], 0, 245, "...") ?></p>
+                                <form method='get'>
+                                    <a href='?action=fullfilm&film_id=<?= $row["id"] ?>' class='btn btn-primary px-4 py-2'>Детальніше про фільм</a>
+                                    <?php
+                                    if(isset($_SESSION["MyID"])){
+                                        ?>
+                                        <a href='?action=editfilm&film_id=<?= $row["id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                        <?php
+                                    }
+                                    ?>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                } elseif($row["visible"]==0){
+                    ?>
+                    <div style="margin-bottom:40px;" class="row">
+                        <div class="col-lg-4">
+                            <form method='get'>
+                                <a href='?action=fullfilm&film_id=<?= $row["id"] ?>' ><img width="300px" height="600px" src=".<?= $row["photo"] ?>" alt="Image" class="img-fluid"></a>
+                            </form>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="site-section-heading text-left mb-5 w-border col-md-12 mx-auto">
+                                <form method='get'>
+                                    <a href='?action=fullfilm&film_id=<?= $row["id"] ?>' ><h2 class="mb-5"><?= $row["name"] ?></h2></a>
+                                    <span style="color:red; margin-left:70px;">НЕ В ПРОКАТІ!</span>
+                                </form>
+                                <p><strong>Вік:</strong> <?= $row["age"] ?>+</p>
+                                <p><strong>Дата виходу в світі:</strong> <?= date("d.m.Y", strtotime($row["release_date_world"])) ?></p>
+                                <p><strong>Дата виходу в Україні:</strong> <?= date("d.m.Y", strtotime($row["release_date_ukraine"])) ?></p>
+                                <p><strong>Тривалість, хв:</strong> <?= $row["duration_minute"] ?></p>
+                                <p><?= mb_strimwidth($row["description"], 0, 245, "...") ?></p>
+                                <form method='get'>
+                                    <a href='?action=fullfilm&film_id=<?= $row["id"] ?>' class='btn btn-primary px-4 py-2'>Детальніше про фільм</a>
+                                    <?php
+                                    if(isset($_SESSION["MyID"])){
+                                        ?>
+                                        <a href='?action=editfilm&film_id=<?= $row["id"] ?>' class='btn btn-primary px-4 py-2'>Редагувати</a>
+                                        <?php
+                                    }
+                                    ?>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
         }
         $MyData->close();
         ?>

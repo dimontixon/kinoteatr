@@ -14,10 +14,15 @@ $s_id=(int)$_GET['session_id'];
 include_once "views/sql_include.php";
 $MyData = new mysqli($host, $user, $pass, $database);
 $MyData->query("SET NAMES 'utf8'");
-$allplaces = $MyData->query("SELECT `places` from `session` WHERE `id` = ".$s_id);
+$allplaces = $MyData->query("SELECT `date`, `format`, `time`, `price`, `places` from `session` WHERE `id` = ".$s_id);
+$filmName = $MyData->query("SELECT `name` from `film`, `session` WHERE `film`.`id` = `session`.`film_id` AND `session`.`id` = ".$s_id);
 
+$rowFilmName = $filmName->fetch_row();
 $row = $allplaces->fetch_assoc();
 $places = $row["places"];
+//print($places);
+echo "<p style='font-size:30px;'>Вибір місць для сеансу:</p><pre style='font-size:25px;'>Фільм - <b>".$rowFilmName[0]."</b>,    Дата - <b>".$row['date']."</b>,    Час - <b>".$row['time']."</b>,     Формат - <b>".$row['format']."</b>,     Ціна - <b>".$row['price']."грн.</b></pre>";
+$arrayPlaces = explode(" ", $places);
 
 if(isset($_POST["send"])){
         $allSelectedPlaces = "";
@@ -30,10 +35,10 @@ if(isset($_POST["send"])){
                 $place++;
             }
         }
-        print($allSelectedPlaces);
+        //print($allSelectedPlaces);
 
         $MyData->query("UPDATE `session` SET `places` = '$allSelectedPlaces' WHERE `id` = '$s_id'");
-        //echo "<script>location.assign('?action=session')</script>";
+        echo "<script>location.assign('?action=place&session_id=$s_id')</script>";
         // include_once "views/main.php";
         // include_once "layout/footer.php";
         // exit;
@@ -52,11 +57,24 @@ $MyData->close();
                     </tr>
         <?php
         $place = 1;
+
         for($i=0;$i<6;$i++){
             echo "<tr>";
             for($j=0;$j<9;$j++){
                 echo "<td><label class='btn btn-secondary active'>";
-                    echo "<input name='place".$place."' value='".$place."' type='checkbox' autocomplete='off'>".$place;
+                $k = 0;
+                    foreach ($arrayPlaces as $p) {
+                        if($place == $p){
+                            echo "<input checked name='place".$place."' value='".$place."' type='checkbox' autocomplete='off'>".$place;
+                            $k = 0;
+                            break;
+                        } else{
+                            $k=1;
+                        }
+                    }
+                    if($k == 1){
+                         echo "<input name='place".$place."' value='".$place."' type='checkbox' autocomplete='off'>".$place;
+                    }
                 echo "</label></td>";
                 $place++;
             }
@@ -64,7 +82,7 @@ $MyData->close();
         }
 
         ?>
-        <button class="btn btn-primary py-3 px-4" type="submit" name="send">Зберегти</button>
+        <button style="margin-top:-200px;" class="btn btn-primary py-3 px-4" type="submit" name="send">Зберегти</button>
     </div>
         </form>
     </table>

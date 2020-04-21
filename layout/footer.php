@@ -29,18 +29,23 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="mb-5">
-                    <h3 class="footer-heading mb-4">Subscribe</h3>
-                    <form action="#" method="post" class="site-block-subscribe">
-                    <div class="input-group mb-3">
-                    <input type="text" class="form-control border-secondary bg-transparent" placeholder="Enter your email"
-                    aria-label="Enter Email" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                    <button class="btn btn-primary rounded-top-right-0" type="button" id="button-addon2">Subscribe</button>
-                </div>
-            </div>
-        </form>
-    </div> -->
+                    <?php
+                        if(!isset($_SESSION["MyID"])){
+                    ?>
+                            <div class="mb-5">
+                                <div class="col-lg-6">
+                                    <div class="mb-5">
+
+                                                <p>Ви адміністратор?
+                                                <a class="btn btn-primary py-3 px-4" href='?action=admin_login'>Увійти</a>
+                                                </p>
+                                    </div>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    ?>
+
 </div>
 <div class="col-lg-7 mb-2 mb-lg-0">
     <div class="mb-5">
