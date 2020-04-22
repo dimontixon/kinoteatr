@@ -18,15 +18,15 @@ $allfilms = $MyData->query("SELECT * FROM `film` WHERE `id` = ".$film_id);
 $allcountry = $MyData->query("SELECT * from `country`");
 $allgenre = $MyData->query("SELECT * from `genre`");
 
-$allfilmgenre = $MyData->query("SELECT `genre`.`id`, `genre`.`name` FROM `genre`, `film`, `film_genre` WHERE `film_genre`.`genre_id` = `genre`.`id`
+$allfilmgenre = $MyData->query("SELECT `genre`.`id` FROM `genre`, `film`, `film_genre` WHERE `film_genre`.`genre_id` = `genre`.`id`
         AND `film_genre`.`film_id` = `film`.`id` AND `film`.`id` = ".$film_id);
-$rowfilmgenre = $allfilmgenre->fetch_assoc();
 
 $allfilmcountry = $MyData->query("SELECT `country`.`id` FROM `country`, `film`, `film_country` WHERE `film_country`.`country_id` = `country`.`id`
     AND `film_country`.`film_id` = `film`.`id` AND `film`.`id` = ".$film_id);
-// $rowfilmcountry = $allfilmcountry->fetch_assoc();
 
-
+foreach ($allfilmcountry as $k) {
+    echo $k['id'].", ";
+}
 
 $row = $allfilms->fetch_assoc();
 $name=$row["name"];
@@ -138,12 +138,18 @@ $MyData->close();
                                     <?php
 
                                     while(($row_country = $allcountry->fetch_assoc())!=false ){
-                                        while(($rowfilmcountry = $allfilmcountry->fetch_assoc())!=false){
-                                            if($row_country['id'] == $rowfilmcountry['id']){
+                                        $k = 0;
+                                        foreach ($allfilmcountry as $k) {
+                                          if($row_country['id'] == $k['id']){
                                                 echo "<option selected value='".$row_country['id']."'>".$row_country['name']."</option><br/>";
+                                                $k = 0;
+                                                break;
                                             } else {
-                                                echo "<option value='".$row_country['id']."'>".$row_country['name']."</option><br/>";
+                                                $k=1;
                                             }
+                                        }
+                                        if($k == 1){
+                                            echo "<option value='".$row_country['id']."'>".$row_country['name']."</option><br/>";
                                         }
                                     }
                                     ?>
@@ -154,9 +160,17 @@ $MyData->close();
                                 <select multiple required title="Виберіть жанр" class="form-control selectpicker" size="0" name="genre[]" id="genre">
                                     <?php
                                     while(($row_genre = $allgenre->fetch_assoc())!=false){
-                                        if($rowfilmgenre['id'] == $row_genre['id']){
-                                            echo "<option selected value='".$row_genre['id']."'>".$row_genre['name']."</option><br/>";
-                                        } else {
+                                        $k = 0;
+                                        foreach ($allfilmgenre as $k) {
+                                            if($k['id'] == $row_genre['id']){
+                                                echo "<option selected value='".$row_genre['id']."'>".$row_genre['name']."</option><br/>";
+                                                $k = 0;
+                                                break;
+                                            } else {
+                                                $k=1;
+                                            }
+                                        }
+                                        if($k == 1){
                                             echo "<option value='".$row_genre['id']."'>".$row_genre['name']."</option><br/>";
                                         }
                                     }

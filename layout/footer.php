@@ -48,11 +48,11 @@
 
 </div>
 <div class="col-lg-7 mb-2 mb-lg-0">
-    <div class="mb-5">
+    <div class="mb-3">
         <h3 class="footer-heading mb-4">Нас легко знайти</h3>
         <div class="block-16">
             <figure>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d755.9573630950568!2d23.97694362652029!3d48.97613599642037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473a0f5505315c49%3A0x374636ee36ec59ce!2z0JrRltC90L7RgtC10LDRgtGAINCn0LDQv9C70ZbQvQ!5e0!3m2!1sru!2sua!4v1583791182807!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d755.9573630950568!2d23.97694362652029!3d48.97613599642037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473a0f5505315c49%3A0x374636ee36ec59ce!2z0JrRltC90L7RgtC10LDRgtGAINCn0LDQv9C70ZbQvQ!5e0!3m2!1sru!2sua!4v1583791182807!5m2!1sru!2sua" width="600" height="450" frameborder="0" style="border:0;" ></iframe>
             </figure>
         </div>
     </div>

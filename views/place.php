@@ -62,10 +62,15 @@ $MyData->close();
             echo "<tr>";
             for($j=0;$j<9;$j++){
                 echo "<td><label class='btn btn-secondary active'>";
+
+                // echo "<td><label class='custom-control custom-checkbox'>";
+
                 $k = 0;
                     foreach ($arrayPlaces as $p) {
                         if($place == $p){
-                            echo "<input checked name='place".$place."' value='".$place."' type='checkbox' autocomplete='off'>".$place;
+                            echo "<div style='border:solid 2px red;padding:3px;'>";
+                            echo "<input checked name='place".$place."' value='".$place."' type='checkbox' autocomplete='off'><span style='color:red;'>".$place."</span>";
+                            echo "</div>";
                             $k = 0;
                             break;
                         } else{
@@ -73,8 +78,11 @@ $MyData->close();
                         }
                     }
                     if($k == 1){
-                         echo "<input name='place".$place."' value='".$place."' type='checkbox' autocomplete='off'>".$place;
+                        echo "<div style='border:solid 2px yellow; padding:3px;'>";
+                         echo "<input name='place".$place."' value='".$place."' type='checkbox' autocomplete='off'><span style='color:yellow;'>".$place."</span>";
+                         echo "</div>";
                     }
+
                 echo "</label></td>";
                 $place++;
             }
